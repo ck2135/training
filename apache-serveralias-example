@@ -6,3 +6,21 @@ qa
 ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $ sed -i 's/ //g; /^$/d' whitelisted-subdomains.txt
 ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $ awk -F'\n' '{print $1".example.com"}' ORS=' '  whitelisted-subdomains.txt
 dev.example.com stage.example.com prod.example.com qa.example.com
+
+
+ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $ awk -F'\n' '{print $1".example.com"}' ORS=' '  whitelisted-subdomains.txt
+dev.example.com stage.example.com prod.example.com qa.example.com ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $ awk -F'\n' '{print $1".example.com"}'^CRS=' '  whitelisted-subdomains.txt
+ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $
+ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $
+ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $
+ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $
+ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $
+ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $
+ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $ server_aliases=`awk -F'\n' '{print $1".example.com"}' ORS=' '  whitelisted-subdomains.txt`
+ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $ echo $server_aliases
+dev.example.com stage.example.com prod.example.com qa.example.com
+ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $ sed -i "s#%SERVER_NAMES%#${server_aliases}#" config-file.config
+ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $ cat config-file.config
+afdfdf
+dfdsfadsf
+ServerAlias  dev.example.com stage.example.com prod.example.com qa.example.com
