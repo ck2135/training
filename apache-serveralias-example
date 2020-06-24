@@ -1,0 +1,8 @@
+ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $ cat whitelisted-subdomains.txt
+dev
+stage
+prod
+qa
+ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $ sed -i 's/ //g; /^$/d' whitelisted-subdomains.txt
+ubuntu@DESKTOP-5H8I4JU ~/ec2/apache-config (master) $ awk -F'\n' '{print $1".example.com"}' ORS=' '  whitelisted-subdomains.txt
+dev.example.com stage.example.com prod.example.com qa.example.com
